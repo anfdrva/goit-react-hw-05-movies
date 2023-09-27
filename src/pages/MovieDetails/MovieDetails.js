@@ -1,13 +1,14 @@
 import { fetchMovieById } from "api";
-import { useEffect, useRef, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import BackLink from "components/BackLink/BackLink";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 
 const MovieDetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState({});
     const location = useLocation();
-    const backLink = useRef(location.state?.from ?? '/');
+    const backLinkHref = useRef(location.state?.from ?? '/');
 
     useEffect(() => {
         fetchMovieById(id).then(data => setMovie(data));
@@ -16,7 +17,7 @@ const MovieDetails = () => {
     const { poster_path, title, vote_average, overview, genres } = movie;
     return (
         <main>
-
+            {/* <BackLink to={backLinkHref.current} /> */}
             <div>
                 <img src={poster_path && `https://image.tmdb.org/t/p/w300${poster_path}`} />
             
@@ -44,6 +45,8 @@ const MovieDetails = () => {
                     </li>
                 </ul>
             </div>
+            
+                <Outlet/>
 
         </main>
     )
