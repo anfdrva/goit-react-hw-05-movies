@@ -1,5 +1,6 @@
 import { fetchMovieByQuery } from "api";
 import Error from "components/Error/Error";
+import { Loader } from "components/Loader/Loader";
 import MoviesList from "components/MovieList/MovieList";
 import SearchForm from "components/SearchForm/SearchForm";
 import { useEffect, useState } from "react";
@@ -38,7 +39,7 @@ export default function Movie() {
     return (
         <div>
             <SearchForm setParams={setParams} />
-            {/* {loader} */}
+            {loader && <Loader/>}
             {movies && !loader && <MoviesList movies={movies} />}
             {totalResults === 0 && (<Error errorText={'Sorry, nothing has been found at your request'} />)}
             {error && (<Error errorText={'Something went wrong... Please try again.'}/>)}

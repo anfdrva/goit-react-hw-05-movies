@@ -1,5 +1,6 @@
 import { fetchMovieById } from "api";
 import BackLink from "components/BackLink/BackLink";
+import { Loader } from "components/Loader/Loader";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
@@ -17,7 +18,7 @@ const MovieDetails = () => {
     const { poster_path, title, vote_average, overview, genres } = movie;
     return (
         <main>
-            {/* <BackLink to={backLinkHref.current} /> */}
+            <BackLink to={backLinkHref.current} />
             <div>
                 <img src={poster_path && `https://image.tmdb.org/t/p/w300${poster_path}`} />
             
@@ -45,9 +46,9 @@ const MovieDetails = () => {
                     </li>
                 </ul>
             </div>
-            
-                <Outlet/>
-
+            <Suspense fallback={<Loader/>}>
+                 <Outlet/>
+            </Suspense>
         </main>
     )
 
