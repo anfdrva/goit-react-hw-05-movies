@@ -17,7 +17,7 @@ const SearchForm = ({ setParams }) => {
     return (
         <form onSubmit={handlerSubmit}>
             <input type="text" name="search" onChange={handlerChange} />
-            <button type="submit"></button>
+            <button type="submit">Search</button>
         </form>
     )
 };

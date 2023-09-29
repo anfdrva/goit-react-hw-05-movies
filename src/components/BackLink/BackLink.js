@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Link } from "./BackLink.styled";
 
 const BackLink = ({ to }) => {
     return (

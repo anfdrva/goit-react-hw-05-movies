@@ -2,7 +2,8 @@ import { fetchMovieById } from "api";
 import BackLink from "components/BackLink/BackLink";
 import { Loader } from "components/Loader/Loader";
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Container, MovieTitle, MovieContent, MovieContentTitle, MovieDetailsList, MovieDetailsLink } from "./MovieDetails.styled";
 
 
 const MovieDetails = () => {
@@ -19,32 +20,32 @@ const MovieDetails = () => {
     return (
         <main>
             <BackLink to={backLinkHref.current} />
-            <div>
+            <Container>
                 <img src={poster_path && `https://image.tmdb.org/t/p/w300${poster_path}`} />
             
                 <div>
-                    <p>{title}</p>
+                    <MovieTitle>{title}</MovieTitle>
                     {vote_average && (<p>User score: {Math.round(vote_average * 10)}%</p>)}
-                    <p>
-                        <span>Overview</span>
+                    <MovieContent>
+                        <MovieContentTitle>Overview</MovieContentTitle>
                         {overview}
-                    </p>
-                    <p>
-                        <span>Ganres</span>
+                    </MovieContent>
+                    <MovieContent>
+                        <MovieContentTitle>Ganres</MovieContentTitle>
                         {genres?.map(({ name }) => name).join(', ')}
-                    </p>
+                    </MovieContent>
                 </div>
-            </div>
+            </Container>
             <div>
-                <p>Additional information</p>
-                <ul>
+                <MovieContentTitle>Additional information</MovieContentTitle>
+                <MovieDetailsList>
                     <li>
-                        <Link to="cast">Cast</Link>
+                        <MovieDetailsLink to="cast">Cast</MovieDetailsLink>
                     </li>
                     <li>
-                        <Link to="review">Review</Link>
+                        <MovieDetailsLink to="review">Review</MovieDetailsLink>
                     </li>
-                </ul>
+                </MovieDetailsList>
             </div>
             <Suspense fallback={<Loader/>}>
                  <Outlet/>
