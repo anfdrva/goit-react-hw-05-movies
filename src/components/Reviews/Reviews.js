@@ -7,7 +7,7 @@ const Reviews = () => {
     const [review, setReview] = useState([]);
     useEffect(() => {
         fetchMovieReviews(id).then(data => {
-            console.log(data.results);
+            //console.log(data.results);
             setReview(data.results)
         });
     }, [id])
