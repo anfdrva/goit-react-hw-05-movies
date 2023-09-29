@@ -39,11 +39,10 @@ export default function Movie() {
     return (
         <div>
             <SearchForm setParams={setParams} />
-            {loader && <Loader/>}
+            {loader && <Loader />}
             {movies && !loader && <MoviesList movies={movies} />}
             {totalResults === 0 && (<Error errorText={'Sorry, nothing has been found at your request'} />)}
-            {error && (<Error errorText={'Something went wrong... Please try again.'}/>)}
+            {error && (<Error errorText={'Something went wrong... Please try again.'} />)}
         </div>
-    )
-
-}
+    );
+};

@@ -10,7 +10,7 @@ const Reviews = () => {
             //console.log(data.results);
             setReview(data.results)
         });
-    }, [id])
+    }, [id]);
 
     return (
         <div>
@@ -25,7 +25,7 @@ const Reviews = () => {
                 </ul>
             ) : ("We don`t have any reviews for this movie")}
         </div>
-    )
+    );
 };
 
 export default Reviews;

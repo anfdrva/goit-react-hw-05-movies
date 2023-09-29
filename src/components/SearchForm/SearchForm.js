@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-
 const SearchForm = ({ setParams }) => {
     const [query, setQuery] = useState('');
 
@@ -19,7 +18,7 @@ const SearchForm = ({ setParams }) => {
             <input type="text" name="search" onChange={handlerChange} />
             <button type="submit">Search</button>
         </form>
-    )
+    );
 };
 
 export default SearchForm;

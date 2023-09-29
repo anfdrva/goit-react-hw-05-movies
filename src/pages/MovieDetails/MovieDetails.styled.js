@@ -29,9 +29,9 @@ export const MovieContentTitle = styled.span`
 `;
 
 export const MovieDetailsList = styled.ul`
-display: flex;
-gap: 20px;
-list-style: none;
+    display: flex;
+    gap: 20px;
+    list-style: none;
 `;
 
 export const MovieDetailsLink = styled(NavLink)`

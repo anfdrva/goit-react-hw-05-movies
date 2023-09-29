@@ -14,7 +14,7 @@ const MoviesList = ({ movies }) => {
                 );
             })}
         </ul>
-    )
+    );
 };
 
 export default MoviesList;

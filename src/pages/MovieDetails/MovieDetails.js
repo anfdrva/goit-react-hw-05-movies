@@ -21,8 +21,7 @@ const MovieDetails = () => {
         <main>
             <BackLink to={backLinkHref.current} />
             <Container>
-                <img src={poster_path && `https://image.tmdb.org/t/p/w300${poster_path}`} />
-            
+                <img src={poster_path && `https://image.tmdb.org/t/p/w300${poster_path}`} alt="" />
                 <div>
                     <MovieTitle>{title}</MovieTitle>
                     {vote_average && (<p>User score: {Math.round(vote_average * 10)}%</p>)}
@@ -47,11 +46,11 @@ const MovieDetails = () => {
                     </li>
                 </MovieDetailsList>
             </div>
-            <Suspense fallback={<Loader/>}>
-                 <Outlet/>
+            <Suspense fallback={<Loader />}>
+                <Outlet />
             </Suspense>
         </main>
-    )
+    );
 
 };
 
