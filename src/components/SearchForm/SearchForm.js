@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const SearchForm = ({ setParams }) => {
-    const [query, setQuery] = useState('');
+const SearchForm = ({ setParams, initialQuery }) => {
+    const [query, setQuery] = useState(initialQuery || '');
 
     const handlerChange = evt => {
         setQuery(evt.target.value.trim().toLowerCase());
@@ -13,9 +13,13 @@ const SearchForm = ({ setParams }) => {
         setParams(query);
     };
 
+    useEffect(() => {
+        setQuery(initialQuery || '')
+    }, [initialQuery]);
+
     return (
         <form onSubmit={handlerSubmit}>
-            <input type="text" name="search" onChange={handlerChange} />
+            <input type="text" name="search" value={query} onChange={handlerChange} />
             <button type="submit">Search</button>
         </form>
     );

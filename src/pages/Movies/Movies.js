@@ -38,7 +38,7 @@ export default function Movie() {
 
     return (
         <div>
-            <SearchForm setParams={setParams} />
+            <SearchForm setParams={setParams} initialQuery={query}/>
             {loader && <Loader />}
             {movies && !loader && <MoviesList movies={movies} />}
             {totalResults === 0 && (<Error errorText={'Sorry, nothing has been found at your request'} />)}
